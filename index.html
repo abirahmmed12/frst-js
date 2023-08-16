@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <h1 class="text-6xl text-center text-amber-400 lg:py-14">lets get some money</h1>
+  <div class="grid grid-cols-3 max-w-screen-xl m-auto gap-1 p-5">
+   <div class="bg-green-500   rounded-lg text-zinc-50 text-2xl p-3 ">
+    <h1 class="pb-2">Withdrow</h1>
+    <h1>$<span id="Withdrow-oldvalue">00</span></h1>
+   </div>
+   <div class="bg-indigo-500  rounded-lg text-zinc-50 text-2xl p-6 ">
+    <h1 class="pb-2">Deposite </h1>
+    <h1 id="deposit-oldvalue">00</h1>
+   </div>
+   <div class="bg-orange-400  rounded-lg text-zinc-50 text-2xl p-6 ">
+    <h1 class="pb-2">Balance </h1>
+    <h1>$<span id="old-balance">1240</span></h1>
+   </div>
+  </div>
+  <div class="max-w-screen-xl m-auto  gap-1 py-10 p-4">
+    <div class="bg-green-600  px-5  rounded-xl p-5">
+      <h1 class="text-3xl mb-5 text-slate-50">please deposite</h1>
+      <input class="w-[300px]  mb-5"  type="text" name="" id="deposit-inputsection" placeholder="$amount you want to deposite">
+      <button id="deposit-btn" class="bg-indigo-500 w-28 p-3 block text-slate-50">Deposite</button>
+    </div>
+    <div class="bg-red-600  px-5  rounded-xl py-10 p-5 mt-3">
+      <h1 class="text-slate-50 text-3xl mb-5 text-slate-50">please Withdrow</h1>
+      <input class="w-[300px]  "  type="text" name="" id="Withdrow-inpputsection" placeholder="$amount you want to Withdrow">
+      <button id="window-btn " class="bg-indigo-500 mt-5 w-28 p-3 block text-slate-50 ">Withdrow</button>
+    </div>
+    <script>
+      const gettingbtn = document.getElementById('deposit-btn').addEventListener('click', function() {
+        const gettinginputsection = document.getElementById('deposit-inputsection');
+        const gettingvalue = gettinginputsection.value
+        const  makeitfloat = parseFloat(gettingvalue)
+        
+    
+        const gettingOldDepoValue = document.getElementById('deposit-oldvalue');
+        const gettingInertext = gettingOldDepoValue.innerText;
+        const innerTextfloat = parseFloat(gettingInertext)
+        const sum =  innerTextfloat + makeitfloat
+       gettingOldDepoValue.innerText = sum
+          
+       const gettingoldblnce = document.getElementById('old-balance')
+       const gettinginnerofblnce = gettingoldblnce.innerText
+       const makeblncefloat = parseFloat(gettinginnerofblnce)
+       const sum2 = makeitfloat + makeblncefloat
+       gettingoldblnce.innerText = sum2
+       gettinginputsection.value = ''
+       
+      
+        
+      });
+
+      document.getElementById('window-btn ').addEventListener('click',function(){
+      const gettingwihdrowinpt = document.getElementById('Withdrow-inpputsection')
+      const gettingwithdrowvalue = gettingwihdrowinpt.value 
+      const makewitdrowfloat = parseFloat(gettingwithdrowvalue)
+      
+
+     const  gettingwithdrowoldvalue = document.getElementById('Withdrow-oldvalue')
+     const gettinginnerold = gettingwithdrowoldvalue.innerText
+     const makewithflt = parseFloat(gettinginnerold)
+
+     gettingwithdrowoldvalue.innerText = makewitdrowfloat 
+     const getbalanceagain = document.getElementById('old-balance')
+     const  agianinner = getbalanceagain.innerText
+     const againfloat = parseFloat(agianinner)
+     const sum2  = againfloat - makewitdrowfloat
+     getbalanceagain.innerText =sum2
+     gettingwihdrowinpt.value =''
+
+
+      
+
+      })
+    </script>
+    
+
+     
+  </div>
+</body>
+</html>
